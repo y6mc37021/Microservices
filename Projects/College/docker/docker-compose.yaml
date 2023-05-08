@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+
+  student-service:
+    image: y6mc37021/smv1-student-service:0.0.1-SNAPSHOT
+    mem_limit: 700m
+    ports:
+      - "1010:1010"
+    networks:
+      - university-network
+    depends_on:
+      - university-naming-server
+    environment:
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+      MANAGEMENT.ZIPKIN.TRACING.ENDPOINT: http://zipkin-server:9411/api/v2/spans
+
+  
+
+networks:
+  university-network:
