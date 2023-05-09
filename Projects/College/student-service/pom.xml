@@ -58,6 +58,57 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
+
+
+		<!-- SB2  : Sleuth (Tracing Configuration) 
+            > Brave (Tracer
+		library) 
+            > Zipkin 
+		-->
+
+		<!-- 
+		<dependency>
+    		<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<dependency>
+    		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-sleuth-brave</artifactId>
+		</dependency>
+		<dependency>
+    		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-sleuth-zipkin</artifactId>
+		</dependency>
+		-->
+
+		<!-- SB3 :  Micrometer 
+            > OpenTelemetry 
+            > Zipkin 
+		-->
+
+		<!-- Micrometer - Vendor-neutral application observability facade.
+		Instrument your JVM-based application code without vendor lock-in.
+		Observation (Metrics & Logs) + Tracing.
+		
+
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-observation</artifactId>
+		</dependency>-->
+
+		<!-- OPTION 1: Open Telemetry as Bridge (RECOMMENDED) -->
+		<!-- Open Telemetry - Simplified Observability (metrics, logs, and 	traces) 
+
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-tracing-bridge-otel</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.opentelemetry</groupId>
+			<artifactId>opentelemetry-exporter-zipkin</artifactId>
+		</dependency>-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -81,6 +132,12 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>y6mc37021/smv1-${project.artifactId}:${project.version}</name>
+					</image>
+					<pullPolicy>IF_NOT_PRESENT</pullPolicy>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

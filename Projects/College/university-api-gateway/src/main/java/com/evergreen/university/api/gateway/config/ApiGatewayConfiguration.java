@@ -11,7 +11,7 @@ public class ApiGatewayConfiguration {
 	
 	@Bean
 	public RouteLocator gatewayRouter(RouteLocatorBuilder builder) {
-		
+		System.out.println("-------New Line------");
 		return builder.routes()
 				.route(p -> p
 						.path("/get")
@@ -19,7 +19,7 @@ public class ApiGatewayConfiguration {
 								.addRequestHeader("MyHeader", "MyURI")
 								.addRequestParameter("Param", "MyValue"))
 								.uri("http://httpbin.org:80"))
-				.route(p -> p.path("/STUDENT-SERVICE-NEW/**")
+				.route(p -> p.path("/STUDENT-SERVICE/**")
 						.uri("lb://student-service"))
 				
 				/*.route(p -> p.path("/currency-conversion/**")

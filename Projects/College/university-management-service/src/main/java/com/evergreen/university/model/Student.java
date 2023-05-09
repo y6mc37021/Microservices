@@ -12,17 +12,20 @@ public class Student {
 	
 	private Long mobile;
 	
+	private String port;
+	
 	public Student() {
 		super();
 	}
 
-	public Student(Long id, String firstName, String lastName, String sex, Long mobile) {
+	public Student(Long id, String firstName, String lastName, String sex, Long mobile, String port) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.sex = sex;
 		this.mobile = mobile;
+		this.port = port;
 	}
 
 	public Long getId() {
@@ -64,12 +67,20 @@ public class Student {
 	public void setMobile(Long mobile) {
 		this.mobile = mobile;
 	}
+	
+	public String getPort() {
+		return port;
+	}
+
+	public void setPort(String port) {
+		this.port = port;
+	}
 
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", sex=" + sex
-				+ ", mobile=" + mobile + "]";
+				+ ", mobile=" + mobile + ", port=" + port + "]";
 	}
-	
+
 	
 }
